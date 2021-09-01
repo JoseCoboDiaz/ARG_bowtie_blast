@@ -16,7 +16,7 @@ file.chomp!
 	bb=File.open("#{ARGV[0]}/#{file}_pairs.1").each_line do |line|
 #	bb=File.open("reads_assembled/#{file}.1.trimmed_pairs").each_line do |line|
 	line.chomp!
-		if line =~ /^@(\S+)/	
+		if line =~ /^@(\S+).gsub('\/1','')/	
 			name=$1
 			n=1
 		elsif n==1
@@ -28,7 +28,7 @@ file.chomp!
 
 	cc=File.open("#{ARGV[0]}/#{file}_pairs.2").each_line do |line|
 	line.chomp!
-		if line =~ /^@(\S+)/	
+		if line =~ /^@(\S+).gsub('\/2','')/	
 			name=$1
 			n=1
 #			puts ">#{sample}_link_#{name}" # link is to have a easy point to split sample name from sequence name
